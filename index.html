@@ -2,21 +2,25 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,800italic,800,700italic' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="SemanticUI/mustache.js"></script>
+	<!-- changement ordre fichier | on charge d'abord nos fichiers importants et on charge les scripts dans le pieds de page  -->
+	<link rel="stylesheet" href="node_modules/semantic-ui-css/semantic.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- ça fait pas un peu beaucoup de fonts ? optimisez aux temps de chargement -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<script src="jquery-2.1.4.js"></script>
-	<script src="app.js"></script>
-	<link rel="stylesheet" href="SemanticUI/semantic.css">
-	<link rel="stylesheet" href="style.css">
-	<title></title>
+	<title>Promo 1 - Tlse</title>
 </head>
 <body>
+	<h1 class="ui header main-title">Promo 1 - Tlse</h1>
+	<div id="main" class="container"></div>
 	<script id="template" type="x-tmpl-mustache" >
-	<div class="container ui cards">
+	<div class="container ui cards ">
+		<!-- boucle avec mustache ! -->
+		{{#users}}
 		<div class="card">
 			<div class="image">
-				<img src="http://lorempixel.com/800/800/">
+				<!-- petit trick pour forcer le chargement d une nouvelle image -->
+				<img src="http://lorempixel.com/800/800/?id={{id}}">
 			</div>
 			<div class="content">
 				<a class="header">{{last_name}} {{first_name}}</a>
@@ -25,15 +29,21 @@
 				</div>
 			</div>
 			<div class="extra content">
-				<a>
+				<a href="u-{{id}}.html">
 					<i class="fa fa-user fa-2x"></i>
 				</a>
-				<a>
+				<a href="{{github}}">
 					<i class="fa fa-github-alt fa-2x"></i>
 				</a>
 			</div>
 		</div>
+		{{/users}}
 	<div>
 	</script>
+	<!-- on charge nos dépendences avec npm -->
+	<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="node_modules/mustache/mustache.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>

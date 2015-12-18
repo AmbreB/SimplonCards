@@ -1,0 +1,21 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+.container {
+	width:1000px;
+	margin:0 auto;
+	padding-top:20px;
+}
+.card {
+	margin:1em 1em !important;
+}
+/* la spécificité en CSS (quand tout est important, plus rien ne l'est)
+http://blog.organicweb.fr/comprendre-le-poids-des-regles-css
+https://developer.mozilla.org/fr/docs/Web/CSS/Sp%C3%A9cificit%C3%A9
+*/
+.ui.cards > .card, .ui.card {
+	width:250px !important;
+}
+.main-title {
+	text-align: center;
+}
